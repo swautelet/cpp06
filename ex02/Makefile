@@ -1,4 +1,4 @@
-SRC =  Base.cpp A.cpp B.cpp C.cpp main.cpp
+SRC =  Base.cpp main.cpp
 NAME = class
 CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 OBJ=$(SRC:%.cpp=%.o)
