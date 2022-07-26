@@ -4,7 +4,7 @@
 
 Base* generate(void)
 {
-	// std::srand((unsigned)time(0));
+	std::srand((unsigned)time(0) + std::rand());
 	int lol = std::rand() % 3;
 	Base* ret = NULL;
 	switch (lol + 1)
@@ -51,7 +51,7 @@ void identify(Base& p)
 int main()
 {
 	Base* tester = NULL;
-	std::srand((unsigned)time(0));
+	// std::srand((unsigned)time(0));
 	for (int i = 0; i < 10; i++)
 	{
 		tester = generate();
