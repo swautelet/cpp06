@@ -1,5 +1,5 @@
 SRC =  main.cpp
-NAME = bureaucrat
+NAME = math
 CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 OBJ=$(SRC:%.cpp=%.o)
 
@@ -18,6 +18,9 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+test : $(NAME)
+	./$(NAME) 42 && ./$(NAME) 0 && ./$(NAME) 500 && ./$(NAME) -123
 
 save :
 	git commit -am "$(MAKECMDGOALS)"
