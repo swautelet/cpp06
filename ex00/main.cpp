@@ -69,6 +69,27 @@ void	convert_double(double dou)
 	std::cout << "double : " << dou << std::endl;
 }
 
+void	deal_except(std::string param)
+{
+	std::cout << "char : impossible" << std::endl;
+	std::cout << "int : impossible" << std::endl;
+	if (!param.compare("nan") || !param.compare("nanf"))
+	{
+		std::cout << "float : nanf" << std::endl;
+		std::cout << "double : nan" << std::endl;
+	}
+	else if (!param.compare("inf") || !param.compare("inff") || !param.compare("+inf") || !param.compare("+inff"))
+	{
+		std::cout << "float : inff" << std::endl;
+		std::cout << "double : inf" << std::endl;
+	}
+	else if (!param.compare("-inf") || !param.compare("-inff"))
+	{
+		std::cout << "float : -inff" << std::endl;
+		std::cout << "double : -inf" << std::endl;
+	}
+}
+
 int main(int argc, char **argv)
 { // have redo it to detect type first !
 	if (argc != 2)
@@ -77,7 +98,11 @@ int main(int argc, char **argv)
 		return 0;
 	}
 	std::string param(argv[1]);
-	if (param.front() == '\'' && param.back() == '\'' && param.size() == 3)
+	if (!param.compare("nan") || !param.compare("nanf") || !param.compare("inf") || !param.compare("inff") || !param.compare("-inf") || !param.compare("-inff") || !param.compare("+inf") || !param.compare("+inff"))
+	{
+		deal_except(param);
+	}
+	else if (param.front() == '\'' && param.back() == '\'' && param.size() == 3)
 	{
 		convert_char(param[1]);
 	}
