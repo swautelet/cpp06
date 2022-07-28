@@ -3,22 +3,70 @@
 
 void	convert_char(char c)
 {
-
+	std::cout << "char : " << c << std::endl;
+	std::cout << "int : " << static_cast<int>(c) << std::endl;
+	std::cout << "float : " << static_cast<float>(c) << std::endl;
+	std::cout << "double : " << static_cast<double>(c) << std::endl;
 }
 
 void	convert_int(int	in)
 {
-
+	char res = 0;
+	if (isprint(in))
+	{
+		res = in;
+	}
+	if (!res)
+	{
+		std::cout << "char : non displayable" << std::endl; 
+	}
+	else
+	{
+		std::cout << "char : '" << res << "'" << std::endl;
+	}
+	std::cout << "int : " << in << std::endl;
+	std::cout << "float : " << static_cast<float>(in) << std::endl;
+	std::cout << "double : " << static_cast<double>(in) << std::endl;
 }
 
 void	convert_float(float fl)
 {
-
+	char res = 0;
+	if (isprint(fl))
+	{
+		res = fl;
+	}
+	if (!res)
+	{
+		std::cout << "char : non displayable" << std::endl; 
+	}
+	else
+	{
+		std::cout << "char : '" << res << "'" << std::endl;
+	}
+	std::cout << "int : " << static_cast<int>(fl) << std::endl;
+	std::cout << "float : " << fl << std::endl;
+	std::cout << "double : " << static_cast<double>(fl) << std::endl;
 }
 
 void	convert_double(double dou)
 {
-
+	char res = 0;
+	if (isprint(dou))
+	{
+		res = dou;
+	}
+	if (!res)
+	{
+		std::cout << "char : non displayable" << std::endl; 
+	}
+	else
+	{
+		std::cout << "char : '" << res << "'" << std::endl;
+	}
+	std::cout << "int : " << static_cast<int>(dou) << std::endl;
+	std::cout << "float : " << static_cast<float>(dou) << std::endl;
+	std::cout << "double : " << dou << std::endl;
 }
 
 int main(int argc, char **argv)
@@ -32,6 +80,18 @@ int main(int argc, char **argv)
 	if (param.front() == '\'' && param.back() == '\'' && param.size() == 3)
 	{
 		convert_char(param[1]);
+	}
+	else if (param.find('.') == std::string::npos)
+	{
+		convert_int(stoi(param));
+	}
+	else if (param.back() == 'f' && param.find('.') != std::string::npos)
+	{
+		convert_float(stof(param));
+	}
+	else if (param.find('.') != std::string::npos)
+	{
+		convert_double(stod(param));
 	}
 	// std::cout << "I received |" << param << "|" << std::endl;
 	// if (param.compare("+inf") == 0 || param.compare("inf") == 0 || param.compare("+inff") == 0 || param.compare("inff") == 0)
