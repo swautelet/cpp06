@@ -11,14 +11,17 @@ Base* generate(void)
 	{
 	case 1:
 		ret = new A;
+		std::cout << "created a type A" << std::endl;
 		return (ret);
 		break;
 	case 2:
 		ret = new B;
+		std::cout << "created a type B" << std::endl;
 		return (ret);
 		break;
 	case 3:
 		ret = new C;
+		std::cout << "created a type C" << std::endl;
 		return (ret);
 		break;
 	default:
