@@ -3,7 +3,7 @@
 
 void	convert_char(char c)
 {
-	std::cout << "char : " << c << std::endl;
+	std::cout << "char : '" << c << "'" <<std::endl;
 	std::cout << "int : " << static_cast<int>(c) << std::endl;
 	std::cout << "float : " << static_cast<float>(c) << std::endl;
 	std::cout << "double : " << static_cast<double>(c) << std::endl;
