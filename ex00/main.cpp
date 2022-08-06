@@ -102,9 +102,12 @@ int main(int argc, char **argv)
 	{
 		deal_except(param);
 	}
-	else if (param.front() == '\'' && param.back() == '\'' && param.size() == 3)
+	else if ((param.front() == '\'' && param.back() == '\'' && param.size() == 3) || (param.size() == 1 && isprint(param.front())))
 	{
-		convert_char(param[1]);
+		if (param.size() == 1)
+			convert_char(param[0]);
+		else
+			convert_char(param[1]);
 	}
 	else if (param.find('.') == std::string::npos)
 	{
