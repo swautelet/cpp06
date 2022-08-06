@@ -106,7 +106,7 @@ int main(int argc, char **argv)
 	{
 			convert_char(param[1]);
 	}
-	else if (param.find('.') == std::string::npos && isnumber(param[0]))
+	else if (param.find('.') == std::string::npos && (isnumber(param[0]) || isnumber(param[1])))
 	{
 		convert_int(stoi(param));
 	}
