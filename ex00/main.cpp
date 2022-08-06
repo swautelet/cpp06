@@ -91,7 +91,7 @@ void	deal_except(std::string param)
 }
 
 int main(int argc, char **argv)
-{ // have redo it to detect type first !
+{
 	if (argc != 2)
 	{
 		std::cout << "Error number of parameter invalid" << std::endl;
@@ -102,14 +102,11 @@ int main(int argc, char **argv)
 	{
 		deal_except(param);
 	}
-	else if ((param.front() == '\'' && param.back() == '\'' && param.size() == 3) || (param.size() == 1 && isprint(param.front())))
+	else if (param.front() == '\'' && param.back() == '\'' && param.size() == 3)
 	{
-		if (param.size() == 1)
-			convert_char(param[0]);
-		else
 			convert_char(param[1]);
 	}
-	else if (param.find('.') == std::string::npos)
+	else if (param.find('.') == std::string::npos && isnumber(param[0]))
 	{
 		convert_int(stoi(param));
 	}
@@ -120,6 +117,10 @@ int main(int argc, char **argv)
 	else if (param.find('.') != std::string::npos)
 	{
 		convert_double(stod(param));
+	}
+	else
+	{
+		std::cout << "Error this is neither a char, an int, a double, nor a float!" << std::endl;
 	}
 	// std::cout << "I received |" << param << "|" << std::endl;
 	// if (param.compare("+inf") == 0 || param.compare("inf") == 0 || param.compare("+inff") == 0 || param.compare("inff") == 0)
